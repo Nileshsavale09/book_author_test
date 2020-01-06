@@ -1,0 +1,49 @@
+﻿@model BookAuthor.Models.Book
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <br />
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Book_title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Book_title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Book_title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    
+        @*@ViewData["Authors"]*@
+
+    <div>
+        @foreach (var Auth in (IEnumerable<BookAuthor.Models.Author>)ViewData["Authors"])
+        {
+            <div>
+                <td>
+                    <input type="checkbox" name="SelectedAuthors" id="@Auth.Author_id" value="@Auth.Author_id">
+                </td>
+
+                <td> @Auth.First_Name </td>
+            </div>
+        }
+    </div>
+    
+    <div id="containerId">
+        <label id="Lbl1"></label>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-success" />
+
+            @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-primary" })
+
+        </div>
+    </div>
+</div>
+}

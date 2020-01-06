@@ -1,0 +1,68 @@
+﻿@model BookAuthor.Models.Book
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>AuthorTbl</h4>
+        <hr />
+        @Html.HiddenFor(p => p.Book_id)
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Book_id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Book_title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Book_title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Book_title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div>
+            @foreach (var author in ViewBag.result)
+                    {
+
+                        <div>
+                            <input type="checkbox" name="SelectedAuthors" value="@author.Author_id" checked />@author.First_Name
+                        </div>
+
+                    }
+
+         </div>
+         <div>
+             @foreach (var Auth in ViewBag.Authors)
+                    {
+                        <div>
+                            <td>
+                                <input type="checkbox" name="SelectedAuthors" id="@Auth.Author_id" value="@Auth.Author_id">
+                            </td>
+
+                            <td> @Auth.First_Name </td>
+                        </div>
+                    }
+         </div>
+
+        @*@foreach (var Auth in ViewBag.Authors)
+        {
+            if (IEnumerable<BookAuthor.Models.Author> ViewBag.result)
+            {
+                <input type="checkbox" name="SelectedAuthors" value="@Auth.Author_id" checked />@Auth.First_Name
+            }
+            else
+            {
+                <input type="checkbox" name="SelectedAuthors" value="@Auth.Author_id" />@Auth.First_Name
+            }
+        }*@
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-success" />  @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+
+</div>

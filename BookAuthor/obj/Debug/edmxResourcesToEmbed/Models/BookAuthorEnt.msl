@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookAuthorModelStoreContainer" CdmEntityContainer="BookAuthorEntities">
+    <EntitySetMapping Name="AuthBooks">
+      <EntityTypeMapping TypeName="BookAuthorModel.AuthBook">
+        <MappingFragment StoreEntitySet="AuthBook">
+          <ScalarProperty Name="AuthBookID" ColumnName="AuthBookID" />
+          <ScalarProperty Name="author_id" ColumnName="author_id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Softdelete" ColumnName="Softdelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Authors">
+      <EntityTypeMapping TypeName="BookAuthorModel.Author">
+        <MappingFragment StoreEntitySet="Authors">
+          <ScalarProperty Name="Author_id" ColumnName="Author_id" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="Date_Of_Birth" ColumnName="Date_Of_Birth" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Softdelete" ColumnName="Softdelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="BookAuthorModel.Book">
+        <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="Book_id" ColumnName="Book_id" />
+          <ScalarProperty Name="Book_title" ColumnName="Book_title" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Softdelete" ColumnName="Softdelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
