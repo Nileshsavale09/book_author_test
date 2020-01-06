@@ -10,6 +10,7 @@ namespace BookAuthor.Controllers
     public class AuthorController : Controller
     {
         BookAuthorEntities EntDb = new BookAuthorEntities();
+        // Author Index
         // GET: Author
         public ActionResult Index()
         {
@@ -22,7 +23,8 @@ namespace BookAuthor.Controllers
         {
             return View();
         }
-
+        
+        // Author Post
         [HttpPost]
         public ActionResult Create(Author authorEnt)
         {
