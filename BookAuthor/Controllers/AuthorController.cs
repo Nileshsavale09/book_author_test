@@ -12,6 +12,7 @@ namespace BookAuthor.Controllers
         BookAuthorEntities EntDb = new BookAuthorEntities();
         // Author Index
         // GET: Author
+        [HttpGet]
         public ActionResult Index()
         {
             var Auth = EntDb.Authors.Where(P => P.Active == "Y" && P.Softdelete == "N");
